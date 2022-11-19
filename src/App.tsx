@@ -10,19 +10,31 @@ export interface ITask {
 }
 
 function App() {
-  const [tasks, setTasks] = useState<ITask[]>([
-    {
-      id: 'teste',
-      title: 'teste',
-      isCompleted: true,
+  const [tasks, setTasks] = useState<ITask[]>([]);
+
+  const handleCreateTask = (taskTitle: string) => {
+  
+    const newTask = {
+      id: crypto.randomUUID(),
+      title: taskTitle,
+      isCompleted: false,
     }
-  ]);
+  
+    const createNewTask = [...tasks, newTask]
+  
+    setTasks(createNewTask)
+  }
+
   return (
     <>
-      <Header />
+      <Header onAddTask={handleCreateTask} />
       <Tasks tasks={tasks} />
     </>
   )
 }
 
 export default App
+function uuid4() {
+  throw new Error('Function not implemented.');
+}
+
