@@ -1,0 +1,37 @@
+.task {
+  width: 100%;
+  background: var(--gray-500);
+  border: 1px solid var (--gray-400);
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.task p {
+  font-size: 0.875rem;
+  line-height: 1.18rem;
+  color: var(--gray-100);
+  margin-right: auto;
+}
+
+.task input[type="radio"] {
+  appearance: none;
+  border: 2px solid var(--blue-500);
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 50%;
+}
+
+.task input[type="radio"]:checked {
+  background: var(--purple-700);
+  border: none;
+}
+
+.deleteButton {
+  background: none;
+  border: none;
+  color: var(--gray-300);
+}
