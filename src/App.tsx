@@ -10,7 +10,7 @@ export interface ITask {
 }
 
 function App() {
-  const [tasks, setTasks] = useState<ITask[]>([]);
+  const [tasks, setTasks] = useState<ITask[]>([]);  
 
   const handleCreateTask = (taskTitle: string) => {
   
@@ -31,10 +31,27 @@ function App() {
     setTasks(newTasks)
   }
 
+  const handleTaskCompleted = (taskId: string) => {
+    const newTasks = tasks.map((task) => {
+      if (task.id === taskId) {
+        return {
+          ...task,
+          isCompleted: !task.isCompleted,
+        }
+      }
+      return task;
+    })
+
+    setTasks(newTasks);
+  }
+
   return (
     <>
       <Header onAddTask={handleCreateTask} />
-      <Tasks tasks={tasks} onDeleteTask={handleDeleteTaskById} />
+      <Tasks
+        tasks={tasks}
+        onDeleteTask={handleDeleteTaskById}
+        onChangeCompleted={handleTaskCompleted} />
     </>
   )
 }

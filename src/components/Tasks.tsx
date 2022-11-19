@@ -5,9 +5,10 @@ import styles from './Tasks.module.css'
 interface Props {
   tasks: ITask[];
   onDeleteTask: (taskId: string) => void;
+  onChangeCompleted: (taskId: string) => void;
 }
 
-export function Tasks({ tasks, onDeleteTask }: Props) {
+export function Tasks({ tasks, onDeleteTask, onChangeCompleted }: Props) {
   const tasksCount = tasks.length;
   const completedTask = tasks.filter((task) => task.isCompleted).length
   return (
@@ -24,7 +25,11 @@ export function Tasks({ tasks, onDeleteTask }: Props) {
       </header>
       <div className={styles.list}>
         {tasks.map((task) => (
-          <Task key={task.id} task={task} onDeleteTask={onDeleteTask} />
+          <Task
+            key={task.id}
+            task={task} onDeleteTask={onDeleteTask}
+            onChangeCompleted={onChangeCompleted}
+          />
         ))}
       </div>
     </section>

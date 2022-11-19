@@ -18,7 +18,12 @@
   margin-right: auto;
 }
 
-.task input[type="radio"] {
+p.textCompleted {
+  color: var(--gray-300);
+  text-decoration: line-through;
+}
+
+.task input[type="checkbox"] {
   appearance: none;
   border: 2px solid var(--blue-500);
   width: 1.125rem;
@@ -26,7 +31,7 @@
   border-radius: 50%;
 }
 
-.task input[type="radio"]:checked {
+.task input[type="checkbox"]:checked {
   background: var(--purple-700);
   border: none;
 }
