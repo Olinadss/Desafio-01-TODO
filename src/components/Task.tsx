@@ -4,9 +4,10 @@ import styles from './Task.module.css'
 
 interface Props {
   task: ITask;
+  onDeleteTask: (taskId: string) => void;
 }
 
-export function Task({ task }: Props) {
+export function Task({ task, onDeleteTask }: Props) {
   return (
     <div className={styles.task}> 
       <input
@@ -15,7 +16,10 @@ export function Task({ task }: Props) {
       >
       </input> 
       <p>{task.title}</p>
-      <button className={styles.deleteButton}>
+      <button
+        className={styles.deleteButton}
+        onClick={() => onDeleteTask(task.id)}
+      >
         <FaRegTrashAlt size={16}/>
       </button>
     </div>

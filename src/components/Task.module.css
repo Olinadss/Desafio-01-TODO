@@ -35,4 +35,5 @@
   background: none;
   border: none;
   color: var(--gray-300);
+  cursor: pointer;
 }
