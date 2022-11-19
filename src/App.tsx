@@ -10,7 +10,7 @@ export interface ITask {
 }
 
 function App() {
-  const [tasks, setTasks] = useState<ITask[]>([]);  
+  const [tasks, setTasks] = useState<ITask[]>([]);
 
   const handleCreateTask = (taskTitle: string) => {
   
@@ -51,7 +51,8 @@ function App() {
       <Tasks
         tasks={tasks}
         onDeleteTask={handleDeleteTaskById}
-        onChangeCompleted={handleTaskCompleted} />
+        onChangeCompleted={handleTaskCompleted}
+      />      
     </>
   )
 }

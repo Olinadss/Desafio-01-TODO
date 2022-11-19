@@ -1,5 +1,6 @@
 import { ITask } from '../App';
 import { Task } from './Task';
+import { TaskEmpty } from './TaskEmpty';
 import styles from './Tasks.module.css'
 
 interface Props {
@@ -9,6 +10,7 @@ interface Props {
 }
 
 export function Tasks({ tasks, onDeleteTask, onChangeCompleted }: Props) {
+  const isValid = tasks.length > 0;
   const tasksCount = tasks.length;
   const completedTask = tasks.filter((task) => task.isCompleted).length
   return (
@@ -24,13 +26,13 @@ export function Tasks({ tasks, onDeleteTask, onChangeCompleted }: Props) {
         </div>
       </header>
       <div className={styles.list}>
-        {tasks.map((task) => (
+        {isValid ? tasks.map((task) => (
           <Task
             key={task.id}
             task={task} onDeleteTask={onDeleteTask}
             onChangeCompleted={onChangeCompleted}
           />
-        ))}
+        )) : <TaskEmpty />}
       </div>
     </section>
   );
